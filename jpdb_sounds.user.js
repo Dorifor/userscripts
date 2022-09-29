@@ -6,6 +6,7 @@
 // @version     1.0.2
 // @author      Mao#2071
 // @license     MIT; http://opensource.org/licenses/MIT
+// @icon        https://www.google.com/s2/favicons?sz=64&domain=jpdb.io
 // @require     http://code.jquery.com/jquery-3.4.1.min.js
 // @run-at      document-end
 // @grant       none
