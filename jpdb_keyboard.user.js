@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         JPDB Arrow Keys Support
 // @namespace    https://github.com/Dorifor
-// @version      1.3
-// @description  Add arrow keys support to JPDB reviews & lessons
+// @version      1.4
+// @description  Add arrow keys support to JPDB reviews & lessons, plus the "M" key to remove example blur.
 // @author       Mao#2071
 // @match        https://jpdb.io/review*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=jpdb.io
@@ -66,6 +66,9 @@
           .querySelector(`${gradesNeighbors[currentActiveElement.id][3]}`)
           .focus();
         break;
+
+      case "KeyM":
+        document.querySelector(".blur")?.classList.remove("blur");
 
       default:
         break;
