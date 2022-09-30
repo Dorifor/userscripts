@@ -38,33 +38,33 @@
       let defaultChoice = document.querySelector("#grade-4")
         ? document.querySelector("#grade-4")
         : document.querySelector("#grade-f");
-      defaultChoice.focus();
+      defaultChoice?.focus();
       currentActiveElement = document.activeElement;
     }
 
     switch (e.code) {
       case "ArrowLeft":
         document
-          .querySelector(`${gradesNeighbors[currentActiveElement.id][0]}`)
-          .focus();
+          .querySelector(`${gradesNeighbors[currentActiveElement?.id]?.[0]}`)
+          ?.focus();
         break;
 
       case "ArrowUp":
         document
-          .querySelector(`${gradesNeighbors[currentActiveElement.id][1]}`)
-          .focus();
+          .querySelector(`${gradesNeighbors[currentActiveElement?.id]?.[1]}`)
+          ?.focus();
         break;
 
       case "ArrowDown":
         document
-          .querySelector(`${gradesNeighbors[currentActiveElement.id][2]}`)
-          .focus();
+          .querySelector(`${gradesNeighbors[currentActiveElement?.id]?.[2]}`)
+          ?.focus();
         break;
 
       case "ArrowRight":
         document
-          .querySelector(`${gradesNeighbors[currentActiveElement.id][3]}`)
-          .focus();
+          .querySelector(`${gradesNeighbors[currentActiveElement?.id]?.[3]}`)
+          ?.focus();
         break;
 
       case "KeyM":
