@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JPDB Arrow Keys Support
 // @namespace    https://github.com/Dorifor
-// @version      1.4
+// @version      1.5
 // @description  Add arrow keys support to JPDB reviews & lessons, plus the "M" key to remove example blur.
 // @author       Mao#2071
 // @match        https://jpdb.io/review*
