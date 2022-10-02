@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JPDB Gamepad Support
 // @namespace    https://github.com/Dorifor
-// @version      1.5.4
+// @version      1.5.5
 // @description  Add gamepad support to JPDB reviews & lessons
 // @author       Mao#2071
 // @match        https://jpdb.io/review*
@@ -40,13 +40,13 @@
       "input[value='Yes, keep going!']",
       "input[value='Yes, keep going!']",
       "input[value='Yes, keep going!']",
-      "input[value='No, I'm done for now.']",
+      "input[value='No, I\\'m done for now.']",
     ],
     "No, I'm done for now.": [
       "input[value='Yes, keep going!']",
-      "input[value='No, I'm done for now.']",
-      "input[value='No, I'm done for now.']",
-      "input[value='No, I'm done for now.']",
+      "input[value='No, I\\'m done for now.']",
+      "input[value='No, I\\'m done for now.']",
+      "input[value='No, I\\'m done for now.']",
     ],
   };
 
