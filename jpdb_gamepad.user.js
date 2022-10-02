@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JPDB Gamepad Support
 // @namespace    https://github.com/Dorifor
-// @version      1.5.1
+// @version      1.5.3
 // @description  Add gamepad support to JPDB reviews & lessons
 // @author       Mao#2071
 // @match        https://jpdb.io/review*
@@ -30,10 +30,22 @@
       "input[value='Yes, use the new grade']",
       "input[value='No, keep the old grade']",
     ],
+    "No, keep the old grade": [
+      "input[value='Yes, use the new grade']",
+      "input[value='No, keep the old grade']",
+      "input[value='No, keep the old grade']",
+      "input[value='No, keep the old grade']",
+    ],
     "Yes, keep going!": [
-      "input[value='Yes, use the new grade']",
-      "input[value='Yes, use the new grade']",
-      "input[value='Yes, use the new grade']",
+      "input[value='Yes, keep going!']",
+      "input[value='Yes, keep going!']",
+      "input[value='Yes, keep going!']",
+      "input[value='No, I'm done for now.']",
+    ],
+    "No, I'm done for now.": [
+      "input[value='Yes, keep going!']",
+      "input[value='No, I'm done for now.']",
+      "input[value='No, I'm done for now.']",
       "input[value='No, I'm done for now.']",
     ],
   };
@@ -160,6 +172,7 @@
 
         // If no answer is currently selected, focus on "Okay" answer by default
         if (!currentActiveElement || currentActiveElement.nodeName === "BODY") {
+          console.log("joj");
           let defaultChoice =
             document.querySelector("#grade-4") ??
             document.querySelector("#grade-f") ??
@@ -176,25 +189,25 @@
 
         if (gamepadAPI.buttonPressed("Left") || gamepadAPI.axesStatus[0] < -stickTreshold) {
           document
-            .querySelector(`${gradesNeighbors[currentActiveElement?.id ?? currentActiveElement.value]?.[0]}`)
+            .querySelector(`${gradesNeighbors[currentActiveElement?.id || currentActiveElement.value]?.[0]}`)
             ?.focus();
         }
 
         if (gamepadAPI.buttonPressed("Up") || gamepadAPI.axesStatus[1] < -stickTreshold) {
           document
-            .querySelector(`${gradesNeighbors[currentActiveElement?.id ?? currentActiveElement.value]?.[1]}`)
+            .querySelector(`${gradesNeighbors[currentActiveElement?.id || currentActiveElement.value]?.[1]}`)
             ?.focus();
         }
 
         if (gamepadAPI.buttonPressed("Down") || gamepadAPI.axesStatus[1] > stickTreshold) {
           document
-            .querySelector(`${gradesNeighbors[currentActiveElement?.id ?? currentActiveElement.value]?.[2]}`)
+            .querySelector(`${gradesNeighbors[currentActiveElement?.id || currentActiveElement.value]?.[2]}`)
             ?.focus();
         }
 
         if (gamepadAPI.buttonPressed("Right") || gamepadAPI.axesStatus[0] > stickTreshold) {
           document
-            .querySelector(`${gradesNeighbors[currentActiveElement?.id ?? currentActiveElement.value]?.[3]}`)
+            .querySelector(`${gradesNeighbors[currentActiveElement?.id || currentActiveElement.value]?.[3]}`)
             ?.focus();
         }
 
