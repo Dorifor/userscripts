@@ -69,6 +69,7 @@
 
       case "KeyM":
         document.querySelector(".blur")?.classList.remove("blur");
+        break;
 
       default:
         break;
