@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JPDB Gamepad Support
 // @namespace    https://github.com/Dorifor
-// @version      1.5.5
+// @version      1.6
 // @description  Add gamepad support to JPDB reviews & lessons
 // @author       Mao#2071
 // @match        https://jpdb.io/review*
@@ -172,19 +172,15 @@
 
         // If no answer is currently selected, focus on "Okay" answer by default
         if (!currentActiveElement || currentActiveElement.nodeName === "BODY") {
-          console.log("joj");
           let defaultChoice =
             document.querySelector("#grade-4") ??
             document.querySelector("#grade-f") ??
             document.querySelector("input[value='Yes, use the new grade']") ??
-            document.querySelector("input[value='Yes, keep going!']");
+            document.querySelector("input[value='Yes, keep going!']") ??
+            document.querySelector("#show-answer")
 
           defaultChoice?.focus();
           currentActiveElement = document.activeElement;
-        }
-
-        if (gamepadAPI.buttonPressed("A")) {
-          currentActiveElement.click();
         }
 
         if (gamepadAPI.buttonPressed("Left") || gamepadAPI.axesStatus[0] < -stickTreshold) {
@@ -211,8 +207,20 @@
             ?.focus();
         }
 
+        if (gamepadAPI.buttonPressed("A")) {
+          currentActiveElement.click();
+        }
+
         if (gamepadAPI.buttonPressed("X")) {
           document.querySelector(".blur")?.classList.remove("blur");
+        }
+
+        if (gamepadAPI.buttonPressed("Y")) {
+          document.querySelector(".example-audio")?.click();
+        }
+
+        if (gamepadAPI.buttonPressed("B")) {
+          document.querySelector(".vocabulary-audio")?.click();
         }
 
         if (gamepadAPI.buttonPressed("LB")) {
