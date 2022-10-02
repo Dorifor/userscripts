@@ -161,9 +161,9 @@
         // If no answer is currently selected, focus on "Okay" answer by default
         if (!currentActiveElement || currentActiveElement.nodeName === "BODY") {
           let defaultChoice =
-            document.querySelector("#grade-4") ||
-            document.querySelector("#grade-f") ||
-            document.querySelector("input[value='Yes, use the new grade']") ||
+            document.querySelector("#grade-4") ??
+            document.querySelector("#grade-f") ??
+            document.querySelector("input[value='Yes, use the new grade']") ??
             document.querySelector("input[value='Yes, keep going!']");
 
           defaultChoice?.focus();
