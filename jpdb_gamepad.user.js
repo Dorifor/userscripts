@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JPDB Gamepad Support
 // @namespace    https://github.com/Dorifor
-// @version      1.5.3
+// @version      1.5.4
 // @description  Add gamepad support to JPDB reviews & lessons
 // @author       Mao#2071
 // @match        https://jpdb.io/review*
