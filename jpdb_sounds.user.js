@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        JPDB Sounds
-// @namespace   jpdbsounds
+// @namespace   https://github.com/Dorifor
 // @description Adds cursed sounds to jpdb, don't thank me, shoutout to @Ōkami Amaterasu#1829 for chosing these lovely sounds.
 // @include     https://jpdb.io/review*
 // @version     1.0.2
