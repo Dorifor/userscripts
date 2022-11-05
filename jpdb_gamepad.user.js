@@ -158,15 +158,19 @@
     gamepadAPI.update();
 
     if (gamepadAPI.turbo) {
-      const sticksTriggered =
+      const leftStickTriggered =
         !(-stickTreshold < gamepadAPI.axesStatus[0] && gamepadAPI.axesStatus[0] < stickTreshold) ||
         !(-stickTreshold < gamepadAPI.axesStatus[1] && gamepadAPI.axesStatus[1] < stickTreshold);
 
-      if (!sticksTriggered) {
+      const rightStickTriggered =
+        !(-stickTreshold < gamepadAPI.axesStatus[2] && gamepadAPI.axesStatus[2] < stickTreshold) ||
+        !(-stickTreshold < gamepadAPI.axesStatus[3] && gamepadAPI.axesStatus[3] < stickTreshold);
+
+      if (!leftStickTriggered) {
         gamepadAPI.axesEnabled = true;
       }
 
-      if (gamepadAPI.buttonsStatus.length > 0 || (sticksTriggered && gamepadAPI.axesEnabled)) {
+      if (gamepadAPI.buttonsStatus.length > 0 || (leftStickTriggered && gamepadAPI.axesEnabled) || rightStickTriggered) {
         gamepadAPI.axesEnabled = false;
         let currentActiveElement = document.activeElement;
 
@@ -177,10 +181,18 @@
             document.querySelector("#grade-f") ??
             document.querySelector("input[value='Yes, use the new grade']") ??
             document.querySelector("input[value='Yes, keep going!']") ??
-            document.querySelector("#show-answer")
+            document.querySelector("#show-answer");
 
           defaultChoice?.focus();
           currentActiveElement = document.activeElement;
+        }
+
+        if (gamepadAPI.axesStatus[3] < -stickTreshold) {
+          window.scrollBy({top: -80, left: 0, behavior: "smooth"})
+        }
+
+        if (gamepadAPI.axesStatus[3] > stickTreshold) {
+          window.scrollBy({top: 80, left: 0, behavior: "smooth"})
         }
 
         if (gamepadAPI.buttonPressed("Left") || gamepadAPI.axesStatus[0] < -stickTreshold) {
@@ -225,6 +237,10 @@
 
         if (gamepadAPI.buttonPressed("LB")) {
           history.back();
+        }
+
+        if (gamepadAPI.buttonPressed("RB")) {
+          document.querySelector("#show-checkbox-examples-label").click()
         }
       }
     }
