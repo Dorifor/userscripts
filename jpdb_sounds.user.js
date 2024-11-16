@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        JPDB Sounds
 // @namespace   https://github.com/Dorifor
-// @description Adds cursed sounds to jpdb, don't thank me, shoutout to @Ōkami Amaterasu#1829 for chosing these lovely sounds.
+// @description Adds sounds to jpdb reviews.
 // @include     https://jpdb.io/review*
 // @version     1.0.2
 // @author      Mao#2071
@@ -15,19 +15,19 @@
 $(document).ready(function () {
   const links = {
     "#grade-1": new Audio(
-      "https://github.com/Dorifor/jpdbsounds/raw/main/Quick_Reverb_Fart_-_Sound_Effect_HD.mp3"
+      "https://example.com/linktoyoursound.mp3"
     ),
     "#grade-2": new Audio(
-      "https://github.com/Dorifor/jpdbsounds/raw/main/Lego_yoda_death_sound.mp3"
+      "https://example.com/linktoyoursound.mp3"
     ),
     "#grade-3": new Audio(
-      "https://github.com/Dorifor/jpdbsounds/raw/main/shivering_dog_meme.mp3"
+      "https://example.com/linktoyoursound.mp3"
     ),
     "#grade-4": new Audio(
-      "https://github.com/Dorifor/jpdbsounds/raw/main/tuting.mp3"
+      "https://example.com/linktoyoursound.mp3"
     ),
     "#grade-5": new Audio(
-      "https://github.com/Dorifor/jpdbsounds/raw/main/Yeah_baby.mp3"
+      "https://example.com/linktoyoursound.mp3"
     ),
   };
 
